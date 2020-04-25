@@ -7,4 +7,4 @@ spring:
           uri: https://github.com/sanjuthomas/config-store
           search-paths:
             - service-*
-          
+          default-label: master
