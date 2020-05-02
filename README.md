@@ -1,3 +1,4 @@
 # config-server
 
-https://cloud.spring.io/spring-cloud-config/reference/html/
+
+to get config by key - http://localhost:8888/api/event-sourcer/dev/tenants

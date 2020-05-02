@@ -1,3 +1,5 @@
+#dog food
+config.server: http://localhost:8888/
 server.port: 8888
 spring:
   cloud:
