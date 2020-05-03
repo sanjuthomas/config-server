@@ -6,11 +6,10 @@ import lombok.Data;
  * @author Sanju Thomas
  */
 @Data
-public class ConfigResponse {
+public class TenantConfigResponse {
 
-  private final String application;
+  private final String tenant;
   private final String profile;
-  private final String key;
   private final Object value;
 
 }

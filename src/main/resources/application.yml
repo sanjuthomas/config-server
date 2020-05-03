@@ -1,5 +1,6 @@
 #dog food
 config.server: http://localhost:8888/
+tenant.config.prefix: tenant-config
 server.port: 8888
 spring:
   cloud:

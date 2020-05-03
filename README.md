@@ -17,3 +17,23 @@ curl http://localhost:8888/api/event-sourcer/dev/tenants
 }
 
 ```
+
+to get the tenant config 
+
+curl http://localhost:8888/config/one/uat
+
+```
+{
+  "tenant": "one",
+  "profile": "uat",
+  "value": {
+    "data-improve": "http://uat.dumptherightwing.com/api/my-data/",
+    "friendlyDisplayName": "Type One from Heaven",
+    "id": "t1",
+    "request-attributes": [
+      "one",
+      "two"
+    ]
+  }
+}
+```

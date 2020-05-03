@@ -19,6 +19,9 @@ public class Config {
   @Value("${config.server}")
   private String configServerUrl;
 
+  @Value("${tenant.config.prefix}")
+  private String tenantConfigPrefix;
+
   private WebClient webClient;
 
   @PostConstruct
@@ -26,7 +29,7 @@ public class Config {
     webClient = WebClient.builder().baseUrl(configServerUrl).build();
   }
 
-  @GetMapping("/api/{application}/{profile}/{key}")
+  @GetMapping("/config/{application}/{profile}/{key}")
   public Mono<ConfigResponse> configByKey(@PathVariable String application,
     @PathVariable String profile, @PathVariable String key) {
     return loadConfig(application, key)
@@ -38,6 +41,17 @@ public class Config {
       .uri(String.format("%s-%s.json", application, profile))
       .retrieve()
       .bodyToMono(JsonNode.class);
+  }
+
+
+  @GetMapping("/config/{tenant}/{profile}")
+  public Mono<TenantConfigResponse> configByTenant(@PathVariable String tenant,
+    @PathVariable String profile) {
+    return webClient.get()
+      .uri(String.format("%s-%s-%s.json", tenantConfigPrefix, tenant, profile))
+      .retrieve()
+      .bodyToMono(JsonNode.class)
+      .map(node -> new TenantConfigResponse(tenant, profile, node));
   }
 
 }
