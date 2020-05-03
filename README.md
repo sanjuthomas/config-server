@@ -1,4 +1,4 @@
-## spring config server playground
+## Spring Config Server Playground
 
 A couple of additions to the spring config server out of the box feature set.
 
@@ -90,7 +90,7 @@ curl http://localhost:8888/event-sourcer/dev
 
 ```
 
-### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```json``` format
+#### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```json``` format
 
 curl http://localhost:8888/event-sourcer-dev.json
 
@@ -206,3 +206,5 @@ vertx.event.bus.root.context: eventbus
 vertx.websocket.port: 10001
 
 ```
+
+##### Questions? send me a note at config@sanju.org
