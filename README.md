@@ -1,5 +1,13 @@
 ## spring config server playground
 
+A couple of additions to the spring config server out of the box feature set.
+
+1. Access config by app name, profile, and config key
+2. In a multi tenant application, ability to store and access the tenant config outside the application config space.
+
+See config store repo for more details about the tenant config structure.
+
+curl https://github.com/sanjuthomas/config-store
 
 #### To get config by key
  
