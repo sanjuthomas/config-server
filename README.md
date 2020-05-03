@@ -1,7 +1,7 @@
 ## spring config server playground
 
 
-### To get config by key
+#### To get config by key
  
 curl http://localhost:8888/config/event-sourcer/dev/tenants
 
@@ -18,7 +18,7 @@ curl http://localhost:8888/config/event-sourcer/dev/tenants
 
 ```
 
-### To get the tenant config
+#### To get the tenant config
 
 curl http://localhost:8888/config/one/uat
 
@@ -38,7 +38,7 @@ curl http://localhost:8888/config/one/uat
 }
 ```
 
-### To get the config for application named ```event-sourcer``` and profile ```dev```
+#### To get the config for application named ```event-sourcer``` and profile ```dev```
 
 curl http://localhost:8888/event-sourcer/dev
 
@@ -138,10 +138,63 @@ curl http://localhost:8888/event-sourcer-dev.json
 
 ```
 
-### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```yml``` format
+#### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```yml``` format
 
 curl http://localhost:8888/event-sourcer-dev.yml
 
-### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```key/value``` format
+```
+
+kafka:
+  bootstrap:
+    servers:
+    - dev.dumptherightwing.com:9092
+  client:
+    properties:
+      acks: all
+      batch:
+        size: 512
+      buffer:
+        memory: 2048
+      linger:
+        ms: 1
+      retries: 3
+name: event sourcer
+tenants:
+- one
+- two
+version: 1.0
+vertx:
+  event:
+    bus:
+      inbound:
+        addesses:
+        - gate-1
+        - gate-2
+      root:
+        context: eventbus
+  websocket:
+    port: 10001
+
+```
+
+#### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```key/value``` format
 
 curl http://localhost:8888/event-sourcer-dev.properties
+
+```
+kafka.bootstrap.servers[0]: dev.dumptherightwing.com:9092
+kafka.client.properties.acks: all
+kafka.client.properties.batch.size: 512
+kafka.client.properties.buffer.memory: 2048
+kafka.client.properties.linger.ms: 1
+kafka.client.properties.retries: 3
+name: event sourcer
+tenants[0]: one
+tenants[1]: two
+version: 1.0
+vertx.event.bus.inbound.addesses[0]: gate-1
+vertx.event.bus.inbound.addesses[1]: gate-2
+vertx.event.bus.root.context: eventbus
+vertx.websocket.port: 10001
+
+```
