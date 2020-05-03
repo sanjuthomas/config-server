@@ -22,13 +22,26 @@ curl http://localhost:8888/config/event-sourcer/dev/vertx
 {
   "application": "event-sourcer",
   "profile": "dev",
-  "key": "tenants",
-  "value": [
-    "one",
-    "two"
-  ]
+  "key": "vertx",
+  "value": {
+    "event": {
+      "bus": {
+        "inbound": {
+          "addesses": [
+            "gate-1",
+            "gate-2"
+          ]
+        },
+        "root": {
+          "context": "eventbus"
+        }
+      }
+    },
+    "websocket": {
+      "port": 10001
+    }
+  }
 }
-
 ```
 
 curl http://localhost:8888/config/event-sourcer/dev/vertx.websocket
