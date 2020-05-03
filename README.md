@@ -9,9 +9,14 @@ See config store repo for more details about the tenant config structure.
 
 curl https://github.com/sanjuthomas/config-store
 
-#### To get config by key
+#### To get config by application, profile, and config key
+
+base url - http://localhost:8888/config
+app name - event-sourcer
+profile - dev
+config key - vertx
  
-curl http://localhost:8888/config/event-sourcer/dev/tenants
+curl http://localhost:8888/config/event-sourcer/dev/vertx
 
 ```
 {
@@ -32,16 +37,26 @@ curl http://localhost:8888/config/one/uat
 
 ```
 {
-  "tenant": "one",
-  "profile": "uat",
+  "application": "event-sourcer",
+  "profile": "dev",
+  "key": "vertx",
   "value": {
-    "data-improve": "http://uat.dumptherightwing.com/api/my-data/",
-    "friendlyDisplayName": "Type One from Heaven",
-    "id": "t1",
-    "request-attributes": [
-      "one",
-      "two"
-    ]
+    "event": {
+      "bus": {
+        "inbound": {
+          "addesses": [
+            "gate-1",
+            "gate-2"
+          ]
+        },
+        "root": {
+          "context": "eventbus"
+        }
+      }
+    },
+    "websocket": {
+      "port": 10001
+    }
   }
 }
 ```
