@@ -31,6 +31,32 @@ curl http://localhost:8888/config/event-sourcer/dev/vertx
 
 ```
 
+curl http://localhost:8888/config/event-sourcer/dev/vertx.websocket
+
+```
+{
+  "application": "event-sourcer",
+  "profile": "dev",
+  "key": "vertx.websocket",
+  "value": {
+    "port": 10001
+  }
+}
+
+```
+
+curl ttp://localhost:8888/config/event-sourcer/dev/vertx.websocket.port
+
+```
+{
+  "application": "event-sourcer",
+  "profile": "dev",
+  "key": "vertx.websocket.port",
+  "value": 10001
+}
+
+```
+
 #### To get the tenant config
 
 curl http://localhost:8888/config/one/uat

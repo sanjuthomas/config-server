@@ -32,8 +32,10 @@ public class Config {
   @GetMapping("/config/{application}/{profile}/{key}")
   public Mono<ConfigResponse> configByKey(@PathVariable String application,
     @PathVariable String profile, @PathVariable String key) {
+    final String jsonPath = String.format("/%s", key.replaceAll("\\.", "/"));
+    System.out.println(jsonPath);
     return loadConfig(application, key)
-      .map(node -> new ConfigResponse(application, profile, key, node.get(key)));
+      .map(node -> new ConfigResponse(application, profile, key, node.at(jsonPath)));
   }
 
   private Mono<JsonNode> loadConfig(final String application, final String profile) {
