@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/sanjuthomas/config-server.svg?branch=master)](https://travis-ci.com/sanjuthomas/config-server)
+
 ## Spring Config Server Playground
 
 A couple of additions to the spring config server out of the box feature set.
