@@ -1,7 +1,7 @@
-# config-server
+## spring config server playground
 
 
-to get config by key -
+### To get config by key
  
 curl http://localhost:8888/config/event-sourcer/dev/tenants
 
@@ -18,7 +18,7 @@ curl http://localhost:8888/config/event-sourcer/dev/tenants
 
 ```
 
-to get the tenant config 
+### To get the tenant config
 
 curl http://localhost:8888/config/one/uat
 
@@ -38,9 +38,9 @@ curl http://localhost:8888/config/one/uat
 }
 ```
 
-to get the config for application named ```event-sourcer``` and profile ```dev```
+### To get the config for application named ```event-sourcer``` and profile ```dev```
 
-http://localhost:8888/event-sourcer/dev
+curl http://localhost:8888/event-sourcer/dev
 
 ```
 {
@@ -82,9 +82,9 @@ http://localhost:8888/event-sourcer/dev
 
 ```
 
-to get the resultant config for application named ```event-sourcer``` and profile ```dev``` in json format.
+### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```json``` format
 
-http://localhost:8888/event-sourcer-dev.json
+curl http://localhost:8888/event-sourcer-dev.json
 
 ```
 {
@@ -137,3 +137,11 @@ http://localhost:8888/event-sourcer-dev.json
 }
 
 ```
+
+### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```yml``` format
+
+curl http://localhost:8888/event-sourcer-dev.yml
+
+### To get the resultant config for application named ```event-sourcer``` and profile ```dev``` in ```key/value``` format
+
+curl http://localhost:8888/event-sourcer-dev.properties
