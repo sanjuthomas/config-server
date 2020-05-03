@@ -3,7 +3,7 @@
 
 to get config by key -
  
-curl http://localhost:8888/api/event-sourcer/dev/tenants
+curl http://localhost:8888/config/event-sourcer/dev/tenants
 
 ```
 {
