@@ -60,7 +60,7 @@ curl http://localhost:8888/config/event-sourcer/dev/vertx.websocket
 
 ```
 
-curl ttp://localhost:8888/config/event-sourcer/dev/vertx.websocket.port
+curl http://localhost:8888/config/event-sourcer/dev/vertx.websocket.port
 
 ```
 {
